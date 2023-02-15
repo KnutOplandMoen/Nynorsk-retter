@@ -1,0 +1,37 @@
+from bibliotek import info 
+from funksjonerV4 import oversettelsesjekk as os
+
+original = 'hei, jeg heter knut. jeg er jeg. endelig er jeg på vei'
+#bruk denne for å lese fra tekst fil 
+original = open('tekst.txt','r')
+original = original.read()
+nytekst  = '\n'
+
+print(info)
+start = input('starte sjekking av tekst? ')
+print('\n--------------------------\nStarter sjekking av tekst...\n--------------------------')
+
+setninger = original.split('.')
+
+for setningnmr in range(len(setninger)):
+    setning = setninger[setningnmr].split()
+    print(setningnmr)
+    ordnmr = -1
+    for ord in setning:
+        print(setning) 
+        setningtekst = ' '.join(setning)
+        print(setningtekst)
+        lengde = len(setning)
+        
+        if ord[-1] == ',':
+            komma = True
+            ord = ord[:-1]
+        elif ord[-1] == '.':
+            punktum = True
+            ord = ord[:-1]  
+            
+        os.oversettelsesjekk(ord, setning, ordnmr)
+        os.ligsomendingsjekk(ord, setning, ordnmr)
+        os.anbehetelsesjekk(ord, setning, ordnmr)
+            
+    
